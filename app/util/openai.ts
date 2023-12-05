@@ -58,11 +58,11 @@ const systemPrompt = `# Role: Tailwind CSS Developer
 `
 
 export async function getResponseFromAPI(image: string) {
-  const endpoint = getGlobalStore().aiInfo.base_url
+  const endpoint = getGlobalStore().aiInfo.base_url || 'https://perkai.pushplus.plus/v1/chat/completions'
   const apiKey = getGlobalStore().aiInfo.key
 
   if (!endpoint || !apiKey)
-    throw new Error('Please set the API endpoint and key first.')
+    throw new Error('请先设置令牌')
 
   const response = await fetch(endpoint, {
     method: 'POST',

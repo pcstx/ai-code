@@ -30,7 +30,7 @@ const useStore = create<StoreState>()(devtools(set => ({
     : localStorage?.getItem('aiInfo')
       ? JSON.parse(localStorage?.getItem('aiInfo') as string)
       : {
-          base_url: '',
+          base_url: 'https://perkai.pushplus.plus/v1/chat/completions',
           key: '',
         },
 

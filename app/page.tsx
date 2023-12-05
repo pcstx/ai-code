@@ -178,7 +178,7 @@ function HistoryPage() {
             // 在history list的右上角
             className="bg-red-400 mt-2 p-2 rounded-md hover:bg-gray-200 focus:outline-none focus:ring"
           >
-            X关闭X
+            X 关闭
 
           </button>
         </div>
@@ -210,7 +210,7 @@ function KeyAndApiSettingBtn() {
         }}
         className=" z-[1000] fixed bottom-[100px] right-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ="
       >
-        秘钥设置
+        令牌设置
       </button>
       {
         showModal
@@ -221,28 +221,31 @@ function KeyAndApiSettingBtn() {
           >
             <div className="bg-white w-[400px] h-[400px] flex flex-col justify-center items-center">
               <div className="flex flex-col justify-center items-center">
-                <label htmlFor="">代理地址</label>
+                {/* <label htmlFor="">代理地址</label>
                 <input
                   id="base_url"
                   type="text"
                   className="mb-3 border w-[300px] h-[40px] rounded-md"
-                  placeholder="https://your-base-url/v1/chat/completions"
+                  placeholder="https://perkai.pushplus.plus/v1/chat/completions"
                   defaultValue={aiInfo.base_url}
-                />
-                <label htmlFor="">秘钥</label>
+                /> */}
+                <label htmlFor="" className="mb-1">破壳AI令牌(API-Key)</label>
                 <input
                   type="text"
                   id="key"
                   className="border w-[300px] h-[40px] rounded-md"
-                  placeholder="请输入秘钥"
+                  placeholder="请输入破壳AI令牌，令牌以[sp-]开头。"
                   defaultValue={aiInfo.key}
                 />
+                <div className="mt-3 mb-3 text-red-600">
+                  <a href="https://perkai.pushplus.plus/token" target="_blank">没有令牌？点击获取</a>
+                </div>
               </div>
               <div className="flex">
                 <button
                   onClick={
                     () => {
-                      const base_url = (document.getElementById('base_url') as HTMLInputElement).value
+                      const base_url = 'https://perkai.pushplus.plus/v1/chat/completions'
                       const key = (document.getElementById('key') as HTMLInputElement).value
                       setAiInfo({ base_url, key })
                       setShowModal(false)
